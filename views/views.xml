@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+    
+    <record id="view_partner_form_inherited"  model="ir.ui.view">
+      <field  name="name">Extension Cta Cte form</field>
+      <field  name="model">res.partner</field>
+      <field  name="inherit_id" ref="base.view_partner_form"/>
+      <field  name="arch" type="xml">
+              <xpath expr="//button[@name='toggle_active']" position='after'>
+                <button name="ver_ctacte" type="object" class="oe_stat_button" icon="fa-archive" string="Cta Cte"  widget="boolean_button" options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+              </xpath>
+      </field>
+    </record>
+
+    <!-- explicit list view definition -->
+    
+    <record model="ir.ui.view" id="view_ctacte">
+      <field name="name">account.move.line</field>
+      <field name="model">account.move.line</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="date"/>
+          <field name="name"/>
+          <field name="account_id"/>
+          <field name="debit"/>
+          <field name="credit"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="l10n_ar_cta_cte.action_window">
+      <field name="name">l10n_ar_cta_cte window</field>
+      <field name="res_model">l10n_ar_cta_cte.l10n_ar_cta_cte</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="l10n_ar_cta_cte.action_server">
+      <field name="name">l10n_ar_cta_cte server</field>
+      <field name="model_id" ref="model_l10n_ar_cta_cte_l10n_ar_cta_cte"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="l10n_ar_cta_cte" id="l10n_ar_cta_cte.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="l10n_ar_cta_cte.menu_1" parent="l10n_ar_cta_cte.menu_root"/>
+    <menuitem name="Menu 2" id="l10n_ar_cta_cte.menu_2" parent="l10n_ar_cta_cte.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="l10n_ar_cta_cte.menu_1_list" parent="l10n_ar_cta_cte.menu_1"
+              action="l10n_ar_cta_cte.action_window"/>
+    <menuitem name="Server to list" id="l10n_ar_cta_cte" parent="l10n_ar_cta_cte.menu_2"
+              action="l10n_ar_cta_cte.action_server"/>
+    -->
+  </data>
+</openerp>
