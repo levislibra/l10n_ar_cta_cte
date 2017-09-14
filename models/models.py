@@ -16,7 +16,7 @@ class CtaCte(models.Model):
 		ctacte_obj = self.pool.get('account.move.line')
 		ctacte_ids = ctacte_obj.search(cr, uid, [
 			('partner_id', '=', partner_id.id),
-			('account_id', 'in', [property_account_receivable_id, property_account_payable_id]),
+			('account_id.internal_type', 'in', ['receivable', 'payable']),
 			])
 
 		model_obj = self.pool.get('ir.model.data')
