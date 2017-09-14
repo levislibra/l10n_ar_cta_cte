@@ -2,16 +2,12 @@
 <openerp>
   <data>
 
-        <!-- explicit list view definition -->
+    <!-- explicit list view definition -->
     
     <record model="ir.ui.view" id="view_ctacte">
       <field name="name">account.move.line.ctacte</field>
       <field name="model">account.move.line</field>
       <field name="arch" type="xml">
-        <search>
-            <filter string="CtaCte Cliente" domain="[('account_id','=',False)]"/>
-            <filter string="CtaCte Proveedor" domain="[('account_id','!=',False)]"/>
-        </search>
         <tree>
           <field name="date"/>
           <field name="journal_id"/>
@@ -23,6 +19,20 @@
           <field name="balance" sum="Saldo"/>
           <field name="date_maturity"/>
         </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="filter_ctacte">
+      <field name="name">account.move.line.ctacte.filter</field>
+      <field name="model">account.move.line</field>
+      <field name="arch" type="xml">
+        <search>
+            <!--<filter string="CtaCte Cliente" domain="[('account_id.id','=', 3)]"/>
+            <filter string="CtaCte Proveedor" domain="[('account_id.id','=', 58)]"/>
+            -->
+            <filter string="Cuenta de Cliente" domain="[('account_id.internal_type','=','receivable')]"/>
+            <filter string="Cuenta de Proveedor" domain="[('account_id.internal_type','=','payable')]"/>
+        </search>
       </field>
     </record>
     
