@@ -8,16 +8,16 @@
       <field name="name">account.move.line.ctacte</field>
       <field name="model">account.move.line</field>
       <field name="arch" type="xml">
-        <tree  create="false" delete="false">
-          <field name="date"/>
-          <field name="journal_id"/>
-          <field name="name"/>
+        <tree  create="false" delete="false" editable="true">
+          <field name="date" readonly="1"/>
+          <field name="journal_id" readonly="1"/>
+          <field name="name" readonly="1"/>
           <field name="partner_id" invisible="1"/>
           <field name="account_id" invisible="1"/>
-          <field name="debit" sum="Debe"/>
-          <field name="credit" sum="Haber"/>
+          <field name="debit" sum="Debe" readonly="1"/>
+          <field name="credit" sum="Haber" readonly="1"/>
           <field name="balance" sum="Saldo"/>
-          <field name="date_maturity"/>
+          <field name="date_maturity" readonly="1"/>
         </tree>
       </field>
     </record>
