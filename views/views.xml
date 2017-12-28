@@ -8,7 +8,7 @@
       <field name="name">account.move.line.ctacte</field>
       <field name="model">account.move.line</field>
       <field name="arch" type="xml">
-        <tree>
+        <tree  create="false" delete="false">
           <field name="date"/>
           <field name="journal_id"/>
           <field name="name"/>
@@ -27,11 +27,8 @@
       <field name="model">account.move.line</field>
       <field name="arch" type="xml">
         <search>
-            <!--<filter string="CtaCte Cliente" domain="[('account_id.id','=', 3)]"/>
-            <filter string="CtaCte Proveedor" domain="[('account_id.id','=', 58)]"/>
-            -->
-            <filter string="Cuenta de Cliente" domain="[('account_id.internal_type','=','receivable')]"/>
-            <filter string="Cuenta de Proveedor" domain="[('account_id.internal_type','=','payable')]"/>
+          <filter string="Cuenta de Cliente" domain="[('account_id.internal_type','=','receivable')]"/>
+          <filter string="Cuenta de Proveedor" domain="[('account_id.internal_type','=','payable')]"/>
         </search>
       </field>
     </record>
@@ -54,45 +51,5 @@
       </field>
     </record>
 
-    <!-- actions opening views on models -->
-    <!--
-    <record model="ir.actions.act_window" id="l10n_ar_cta_cte.action_window">
-      <field name="name">l10n_ar_cta_cte window</field>
-      <field name="res_model">l10n_ar_cta_cte.l10n_ar_cta_cte</field>
-      <field name="view_mode">tree,form</field>
-    </record>
-    -->
-
-    <!-- server action to the one above -->
-    <!--
-    <record model="ir.actions.server" id="l10n_ar_cta_cte.action_server">
-      <field name="name">l10n_ar_cta_cte server</field>
-      <field name="model_id" ref="model_l10n_ar_cta_cte_l10n_ar_cta_cte"/>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": self._name,
-        }
-      </field>
-    </record>
-    -->
-
-    <!-- Top menu item -->
-    <!--
-    <menuitem name="l10n_ar_cta_cte" id="l10n_ar_cta_cte.menu_root"/>
-    -->
-    <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="l10n_ar_cta_cte.menu_1" parent="l10n_ar_cta_cte.menu_root"/>
-    <menuitem name="Menu 2" id="l10n_ar_cta_cte.menu_2" parent="l10n_ar_cta_cte.menu_root"/>
-    -->
-    <!-- actions -->
-    <!--
-    <menuitem name="List" id="l10n_ar_cta_cte.menu_1_list" parent="l10n_ar_cta_cte.menu_1"
-              action="l10n_ar_cta_cte.action_window"/>
-    <menuitem name="Server to list" id="l10n_ar_cta_cte" parent="l10n_ar_cta_cte.menu_2"
-              action="l10n_ar_cta_cte.action_server"/>
-    -->
   </data>
 </openerp>
